@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 0.120857, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 2, 0.25, 2 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Floor" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Light" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.820252, 0.572003, 0, -0.572003, -0.820252, -0.452357, 1.39939, -1.88328 )
+shadow_enabled = true
