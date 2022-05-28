@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="GoGodotJam"
-run/main_scene="res://TestAssets/TestFloor.tscn"
+run/main_scene="res://Level/Main.tscn"
 config/icon="res://icon.png"
 
 [input]
