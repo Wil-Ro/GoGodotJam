@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://TestAssets/TestMat.tres" type="Material" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 9.93034, 0.229442, 10.0216 )
+
+[sub_resource type="PlaneMesh" id=2]
+
+[node name="RoomSection" type="Spatial"]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.299721, 0, 0, 0, 0.999069, 0, 0, 0, 0.299721, 0, -0.230075, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333163, 0 )
