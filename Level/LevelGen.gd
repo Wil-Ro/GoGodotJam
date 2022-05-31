@@ -4,13 +4,16 @@ extends Spatial
 export(Array, PackedScene) var sections
 export(PackedScene) var Player
 
+# globals
+export(PackedScene) var enemy
 
 func _ready():
 	# set-up
 	randomize()
 	
-	# calculate enemies
 	
+	# calculate enemies
+	# temp solution
 	
 	# build level
 	generateArena()
@@ -24,7 +27,7 @@ func generateArena():
 	var currentAddLocation = Transform()
 	var valCache = [-1, -1] # we put -1 in here so that randomVal is in the cache to start. We use -1 because it wont mess with anything
 	var randomVal = -1
-	for i in range(5): #(randi() % 4) + 1
+	for i in range((randi() % 4) + 1):
 		# generate a nice random number
 		while randomVal in valCache:
 			randomVal = randi() % sections.size()
@@ -42,4 +45,12 @@ func generateArena():
 		currentAddLocation = currentSection.get_node("Connector").global_transform
 		
 		# add enemies to section
+		for j in currentSection.get_node("Navigation").get_children():
+			if "EnemySpawns" in j.get_groups():
+				var currentEnemy = enemy.instance()
+				currentSection.get_node("Navigation").add_child(currentEnemy)
+				currentEnemy.transform = j.transform
+			
+			
+			
 
