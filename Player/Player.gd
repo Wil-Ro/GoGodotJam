@@ -3,6 +3,8 @@ extends KinematicBody
 #editable
 export var speed = 5
 
+signal death
+
 # properties of player
 var health = 10
 
@@ -69,4 +71,5 @@ func _physics_process(delta):
 
 func take_damage(dmg):
 	health -= dmg
-	print("took damage, health is now ", health)
+	if health <= 0:
+		emit_signal("death")

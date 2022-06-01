@@ -11,7 +11,6 @@ height = 0.002
 
 [node name="GenericEnemy" type="KinematicBody"]
 script = ExtResource( 1 )
-sight_radius = 2
 
 [node name="Mesh" parent="." instance=ExtResource( 2 )]
 transform = Transform( -0.407968, 0, -3.56657e-08, 0, 0.407968, 0, 3.56657e-08, 0, -0.407968, -9.67979e-05, 0.00252745, 0.0778817 )
@@ -23,7 +22,13 @@ shape = SubResource( 1 )
 [node name="ViewSphere" type="Area" parent="."]
 
 [node name="ViewSphereCollider" type="CollisionShape" parent="ViewSphere"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.341654, 0 )
 shape = SubResource( 2 )
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316678, 0 )
+enabled = true
+cast_to = Vector3( 0, 0, -1 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Position2D",
+"class": "MeasuringTape2D",
+"language": "GDScript",
+"path": "res://addons/measuring_tape/measuring_tape_2d.gd"
+}, {
+"base": "Position3D",
+"class": "MeasuringTape3D",
+"language": "GDScript",
+"path": "res://addons/measuring_tape/measuring_tape_3d.gd"
+}, {
+"base": "Resource",
+"class": "Units",
+"language": "GDScript",
+"path": "res://addons/measuring_tape/units.gd"
+} ]
+_global_script_class_icons={
+"MeasuringTape2D": "res://addons/measuring_tape/icons/measuring_tape_2d.svg",
+"MeasuringTape3D": "res://addons/measuring_tape/icons/measuring_tape_3d.svg",
+"Units": ""
+}
+
 [application]
 
 config/name="GoGodotJam"
