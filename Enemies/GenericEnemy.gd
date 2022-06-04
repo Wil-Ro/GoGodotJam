@@ -4,8 +4,8 @@ extends KinematicBody
 # all of these should be between 1 and 10
 # base - these should total to 30(?)
 export var base_speed = 1 # normal walking speed
-export var damage = 0 # damage dealt
-export var health = 0 # health
+export var damage = 1 # damage dealt
+export var health = 10 # health
 export var sight_chance = 10 # how likely it is to notice the player
 export var sight_radius = 2 # length of sight
 export var aggro = 0 # likelyness to run away when injured
@@ -33,7 +33,6 @@ func _ready():
 	$ViewSphere.get_node("ViewSphereCollider").shape.set_radius(sight_radius)
 	# instance a mesh depending on stats
 	animator = $Mesh.get_node("AnimationPlayer")
-	animator.set_blend_time("idle-loop", "run-loop", 0.5)
 	navigator = get_parent()
 	
 
@@ -48,6 +47,7 @@ func _process(delta):
 			pass
 	
 func _physics_process(delta):
+	# somethings not using global here
 	# if we're not attacking and theres somewhere to go
 	if animator.current_animation != "lunge":
 		if currentWalkPathNode < walkPath.size(): 
@@ -55,7 +55,7 @@ func _physics_process(delta):
 			if direction.length() < 1:
 				currentWalkPathNode += 1
 			else:
-				animator.play("run-loop")
+				animator.play("run-loop", -1, base_speed)
 				look_at(walkPath[currentWalkPathNode], Vector3.UP)
 				move_and_slide(direction.normalized() * base_speed, Vector3.UP )
 		else:
@@ -87,7 +87,13 @@ func attack():
 	if animator.current_animation != "lunge":
 		animator.play("lunge")
 		if $RayCast.is_colliding() and $RayCast.get_collider().name == "Player":
-			target.take_damage(1)
+			target.take_damage(damage)
 			animator.queue("idle-loop")
 		else:
 			look_at(target.global_transform.origin, Vector3.UP)
+
+func damage(dmg):
+	health -= dmg
+	if health <= 0:
+		#blood particles
+		queue_free()

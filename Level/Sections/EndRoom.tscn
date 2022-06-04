@@ -1,0 +1,101 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://TestAssets/TestMat.tres" type="Material" id=1]
+[ext_resource path="res://Level/EndPoint.gd" type="Script" id=2]
+
+[sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 4.69866, 0.039108, 4.69281 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.134744, 0.469481, 4.6789 )
+
+[sub_resource type="CubeMesh" id=7]
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 1.56067, 0.371551, 1.54614 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.476351, 0.522785, 0.470025 )
+
+[node name="GenericRoom" type="Spatial"]
+
+[node name="Navigation" type="Navigation" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -2.91038e-11, 7.45058e-09, -5.82077e-11 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.640833, 0, 0, 0, 2.13611, 0, 0, 0, 0.640833, 0.000470638, -0.0822541, 0.000937462 )
+shape = SubResource( 5 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="StaticBody"]
+transform = Transform( -4.70866e-08, -2.99974, 0, 0.963386, -1.62907e-06, 0, 0, 0, 2.99974, 2.99431, 0.962061, -1.74623e-10 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.640833, 0, 0, 0, 2.13611, 0, 0, 0, 0.640833, 3.0733, 0.917332, 0.000937462 )
+shape = SubResource( 6 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 4.21109e-08, 2.99974, -2.62246e-07, 0.963386, -1.31123e-07, 0, -3.68145e-15, -2.62246e-07, -2.99974, -3.0005, 0.962061, -1.74623e-10 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -0.640833, 0, -5.60234e-08, 0, 2.13611, 0, 5.60234e-08, 0, -0.640833, -2.92151, 0.917332, 0.000937462 )
+shape = SubResource( 6 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 1.84073e-15, 1.31123e-07, -2.99974, 0.963386, -1.31123e-07, -3.81165e-21, -4.21109e-08, -2.99974, -1.31123e-07, -0.00301933, 0.962061, 3.0001 )
+mesh = SubResource( 2 )
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -2.80117e-08, 0, -0.640833, 0, 2.13611, 0, 0.640833, 0, -2.80117e-08, 0.0759764, 0.917332, 3.00104 )
+shape = SubResource( 6 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="StaticBody"]
+transform = Transform( 0.5, 0, 0, 0, 0.05, 0, 0, 0, 0.5, 0.224038, 0.0376423, 2.09053 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -1.40059e-08, 0, -0.320417, 0, 0.106806, 0, 0.320417, 0, -1.40059e-08, 0.219231, 0.0504217, 2.09474 )
+shape = SubResource( 8 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.333163, 0 )
+
+[node name="Reciever" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.01447 )
+
+[node name="Connector" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.00475 )
+
+[node name="End" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.00475 )
+
+[node name="Area" type="Area" parent="End"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22838, 0.616391, -0.896541 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="End/Area"]
+shape = SubResource( 9 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="End"]
+transform = Transform( 0.5, 0, 0, 0, 0.05, 0, 0, 0, 0.5, 0.224038, 0.0376423, 2.09053 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="CollisionShape5" type="CollisionShape" parent="End"]
+transform = Transform( -1.40059e-08, 0, -0.320417, 0, 0.106806, 0, 0.320417, 0, -1.40059e-08, 0.219231, 0.0504217, 2.09474 )
+shape = SubResource( 8 )
+
+[connection signal="body_entered" from="End/Area" to="End/Area" method="_on_Area_body_entered"]

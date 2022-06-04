@@ -15,3 +15,47 @@ shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.000692964, 0.248545, -0.0102282 )
+
+[node name="RayCastContainer" type="Spatial" parent="Camera"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.178297, -0.167594, -0.345316 )
+
+[node name="RayCast5" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="RayCast6" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="RayCast2" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="RayCast" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="RayCast3" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="RayCast4" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="RayCast7" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="RayCast8" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="RayCast9" type="RayCast" parent="Camera/RayCastContainer"]
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+
+[node name="GunTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
