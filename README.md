@@ -1,4 +1,5 @@
-# GoGodotJam - A small game made over the course of a week for the w0ww GoGodot game jam
+# GoGodotJam
+### A small game made over the course of a week for the 2021 GoGodot game jam
  
 This untitled project is a small game based off the theme "Evolution", it's build in the open source "Godot" engine.
 
